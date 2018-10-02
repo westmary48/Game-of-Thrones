@@ -1,4 +1,5 @@
 import { printToDom } from "../helpers/util.js";
+import {detailsBuidler} from "./detail.js";
 
 const characters = [
     { id: 'character1', name: 'John Snow', house: 'Stark', imageUrl: 'https://vignette.wikia.nocookie.net/gameofthrones/images/a/a5/Profile-JonSnow-707.png/revision/latest?cb=20170828030553' },
@@ -8,9 +9,9 @@ const characters = [
 ];
 
 const characterClick = (e) => {  //this one was third
-    const characterId = e.target.closest('.character-card').id
-    const currentCharacter = characters.find(x => x.id === characterId)
-    console.log('currentCharacter', currentCharacter);
+    const characterId = e.target.closest('.character-card').id  //closet starts with what you started with and then goes up the DOM chain- this says who cares where you click, it will still show everything
+    const currentCharacter = characters.find(x => x.id === characterId)  //find is looping of the character ID and finding which character I clicked on
+    detailsBuidler(currentCharacter);
 };
 
 const createEvents = () => {  // then this one
