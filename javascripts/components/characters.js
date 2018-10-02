@@ -7,10 +7,23 @@ const characters = [
     { id: 'character4', name: 'Tyrion Lannister', house: 'Lannister', imageUrl: 'https://vignette.wikia.nocookie.net/gameofthrones/images/5/58/Tyrion_main_s7_e6.jpg/revision/latest?cb=20170818050344' }
 ];
 
-const characterBuilders = () => {
+const characterClick = (e) => {  //this one was third
+    const characterId = e.target.closest('.character-card').id
+    const currentCharacter = characters.find(x => x.id === characterId)
+    console.log('currentCharacter', currentCharacter);
+};
+
+const createEvents = () => {  // then this one
+    const characterCards = document.getElementsByClassName('character-card')
+    for(let i=0; i<characterCards.length; i++){
+        characterCards[i].addEventListener('click', characterClick);
+    }
+};
+
+const characterBuilders = () => {  //made this function first
     let domString = '';
     characters.forEach((character) => {
-        domString += `<div class= "col-2 character">`
+        domString += `<div class= "col-2 character-card" id="${character.id}">`
         domString +=    `<div class="card">`;   //this is in the bootstrap components card template
         domString +=    `<img class="card-img-top" src="${character.imageUrl}" alt="${character.name}">`;
         domString +=    `<div class="card-body">`;
@@ -20,6 +33,7 @@ const characterBuilders = () => {
         domString += `</div>`;
         });
         printToDom(domString);
+        createEvents();
     };
     
 export {characterBuilders};
