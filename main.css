@@ -1,3 +1,15 @@
 body {
     background-color: slategray;
 }
+
+.character {
+    display: inline-block;
+}
+
+.card-img-top {
+    height: 280px;
+    width: 280ps;
+    object-fit: cover;
+    object-position: 0 0; 
+    margin: 0 auto;
+}
