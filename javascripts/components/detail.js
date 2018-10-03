@@ -1,16 +1,18 @@
 import {printToDom} from '../helpers/util.js';
-import {characterBuilders} from './characters.js';
+import {characterBuilders, getCharacterz} from './characters.js';
 
 const closeButtonEvent = () => {
     const closeButton = document.getElementById('closeButton');
-    closeButton.addEventListener('click', characterBuilders)
+    closeButton.addEventListener('click',() => {
+        characterBuilders(getCharacterz());
+    });
 };
 
 const detailsBuilder = (character) => {
     let domString = '';
     domString += `<div class= " col-6 offest-md-3">`;
     domString += `<div class= "row">`;
-    domString += `<button class ="btn btn-danger" id"closeButton">X</button>`;
+    domString += `<button class ="btn btn-danger" id="closeButton">X</button>`;
     domString += `</div>`;
     domString += `<div class= "row">`;
     domString += `<div class = "col">`;
