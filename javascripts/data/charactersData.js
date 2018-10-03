@@ -1,15 +1,9 @@
-import{setCharacters, characterBuilders} from '../components/characters.js';
-
-// let characters = [];
-
-// const setCharacters = (newArray) => {
-//     characters = newArray;
-// };
+import{setCharacters, characterBuilders, getCharacterz} from '../components/characters.js';
 
 function executeThisCodeAfterFileLoaded () {
     const data = JSON.parse(this.responseText);
     setCharacters(data.characters);
-    characterBuilders();
+    characterBuilders(getCharacterz());
 }
 
 function executeThisCodeIfXHRFails () {
