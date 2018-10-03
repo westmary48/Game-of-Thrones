@@ -37,4 +37,4 @@ const characterBuilders = () => {  //made this function first
         createEvents();
     };
     
-export {characterBuilders};
+export {characterBuilders, setCharacters};
